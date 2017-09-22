@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/employees
+    username: root
+    password: jmorla07
+    driverClassName: com.mysql.jdbc.Driver
