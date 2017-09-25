@@ -47,6 +47,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 		
 		return employeeRepository.save(emp);
 	}
+	
+	
+
+	@Override
+	@Transactional
+	public List<Employees> addEmployeeList(List<Employees> empl) throws InvalidEmployeeException {
+		return employeeRepository.save(empl);
+	}
 
 	@Override
 	@Transactional

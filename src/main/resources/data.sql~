@@ -7,4 +7,3 @@
 -- insert into employees values (1,'Jorge Luis','Morla Reyes'),
 --				(2,'Pedro Armando','Pinela Gonzalez')
 select * from employees;
-

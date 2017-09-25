@@ -16,4 +16,6 @@ public interface EmployeeService {
 	public Employees findEmployeeById(Integer id);
 	
 	public Employees findEmployeeByName(String name);
+	
+	public List<Employees> addEmployeeList(List<Employees> empl) throws InvalidEmployeeException;
 }

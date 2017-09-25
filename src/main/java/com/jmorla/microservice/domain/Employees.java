@@ -1,8 +1,12 @@
 package com.jmorla.microservice.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +23,11 @@ public class Employees {
 	@Column(name="last_name")
 	private String lastName;
 
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="department_id",nullable=false)
+	private Departments department;
 	
-	public Employees() {
-	
-	}
+	public Employees() {}
 
 	public Employees(int employeeId, String firstName, String lastName) {
 		super();
@@ -54,5 +59,15 @@ public class Employees {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public Departments getDepartments() {
+		return department;
+	}
+
+	public void setDepartments(Departments departments) {
+		this.department = departments;
+	}
+	
+	
 	
 }
