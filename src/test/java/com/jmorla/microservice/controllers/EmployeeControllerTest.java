@@ -1,5 +1,6 @@
 package com.jmorla.microservice.controllers;
 
+import com.jmorla.microservice.controllers.rest.EmployeeRestController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class EmployeeControllerTest {
 
 	@Autowired private WebApplicationContext context;
-	@Autowired private EmployeeController employeeController;
+	@Autowired private EmployeeRestController employeeController;
 	private MockMvc mvc;
 	
 	
@@ -41,10 +42,7 @@ public class EmployeeControllerTest {
 	@Test
 	public void shouldReturnEmployeeList() throws Exception{
 		String result="[{\"employeeId\":1,\"firstName\":\"Jorge Luis\""
-				+ ",\"lastName\":\"Morla Reyes\"},{\"employeeId\":2,"
-				+ "\"firstName\":\"Pedro Armando\",\"lastName\":"
-				+ "\"Pinela Gonzalez\"},{\"employeeId\":3,\"firstName\""
-				+ ":\"Domingo\",\"lastName\":\"Gonzalo\"}]";
+				+ ",\"lastName\":\"Morla Reyes\"}]";
 		
 		mvc.perform(get("/employees/").accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
