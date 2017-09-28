@@ -22,7 +22,7 @@ public class Departments {
 	@Column(name="department_name")
 	private String departmentName;
 	
-	@OneToMany(mappedBy = "department")
+	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Employees> employees = new HashSet<>();
 	
 	public Departments() {}

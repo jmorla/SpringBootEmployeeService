@@ -2,6 +2,11 @@ package com.jmorla.microservice.services.impl;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import java.util.ArrayList;
@@ -12,10 +17,13 @@ import com.jmorla.microservice.domain.Employees;
 import com.jmorla.microservice.repositories.EmployeeRepository;
 import com.jmorla.microservice.services.EmployeeService;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class EmployeeServiceImplTest {
 
 	private EmployeeService employeeService;
 	private EmployeeRepository employeeRepository;
+	@Autowired private EmployeeRepository repo;
 	
 	@Before
 	public void setUp(){
@@ -34,6 +42,13 @@ public class EmployeeServiceImplTest {
 		when(employeeService.findAllEmployees()).thenReturn(result);
 		
 		assertEquals(employeeService.findAllEmployees(),result);
+	}
+	
+	@Test
+	public void shouldReturnSizeList(){
+		List<Employees> employees = repo.findAll();
+		System.out.println(employees.size());
+		assertNotNull(employees);
 	}
 	
 	@Test(expected=MicroServiceException.class)

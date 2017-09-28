@@ -1,4 +1,4 @@
-package com.jmorla.microservice.controllers;
+package com.jmorla.microservice.controllers.rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,12 @@ import com.jmorla.microservice.domain.Employees;
 import com.jmorla.microservice.services.EmployeeService;
 
 @RestController
-@RequestMapping("/employees/")
-public class EmployeeController {
+@RequestMapping("/rest/employees/")
+public class EmployeeRestController {
 
 	private EmployeeService employeeService;
 	
-	public EmployeeController(EmployeeService employeeService) {
+	public EmployeeRestController(EmployeeService employeeService) {
 		this.employeeService = employeeService;
 	}
 	
