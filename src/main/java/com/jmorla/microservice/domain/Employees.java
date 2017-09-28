@@ -1,6 +1,5 @@
 package com.jmorla.microservice.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +22,7 @@ public class Employees {
 	@Column(name="last_name")
 	private String lastName;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="department_id",nullable=false)
 	private Departments department;
 	

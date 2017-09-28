@@ -59,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	@Transactional
 	public List<Employees> findAllEmployees() {
-		return employeeRepository.findAll();
+		return employeeRepository.findAllWithDepartment();
 	}
 
 	@Override
